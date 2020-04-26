@@ -11,14 +11,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Order Again"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thank you for your order"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="101dp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/button18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to Main Menu"
+        app:layout_constraintBottom_toTopOf="@+id/button18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.933" />
 </androidx.constraintlayout.widget.ConstraintLayout>
