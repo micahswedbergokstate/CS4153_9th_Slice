@@ -33,4 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Added by Scott for the ANKO SQLite Database module.
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
 }

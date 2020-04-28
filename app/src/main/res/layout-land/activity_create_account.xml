@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPassword1" />
 
     <Button
-        android:id="@+id/btnGotoCreateAccount"
+        android:id="@+id/btnCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
