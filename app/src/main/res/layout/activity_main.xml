@@ -21,6 +21,12 @@
             android:text="Welcome to Ninth Slice!"
             android:textSize="32sp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:minHeight="60dp" />
+
         <TextView
             android:id="@+id/tvWelcomeBack"
             android:layout_width="wrap_content"
@@ -83,7 +89,7 @@
             android:textSize="26sp" />
 
         <Button
-            android:id="@+id/btnCreateAccount"
+            android:id="@+id/btnGotoCreateAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"

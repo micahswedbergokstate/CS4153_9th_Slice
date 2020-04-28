@@ -7,12 +7,12 @@
     tools:context=".CreateAccount">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.714" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txtPassword1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -41,10 +41,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/txtPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -53,16 +53,16 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword1" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnGotoCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword2"
         app:layout_constraintVertical_bias="0.36" />
 </androidx.constraintlayout.widget.ConstraintLayout>
