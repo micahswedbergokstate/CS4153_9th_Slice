@@ -12,8 +12,29 @@ object AccountManager {
     enum class AccountType {
         USER, GUEST
     }
-    var userType = AccountType.GUEST
-    var currentUser = "Guest"
+
+    private val GUEST_NAME = "Guest"
+    private var currentUserType = AccountType.GUEST
+
+    private var currentUser = GUEST_NAME
+
+    fun getCurrentUserType(): AccountType {
+        return currentUserType
+    }
+
+    fun getCurrentUserEmail(): String {
+        return currentUser
+    }
+
+    fun setUser(email: String?) {
+        if (email != null) {
+            currentUser = email
+            currentUserType = AccountType.USER
+        } else {
+            currentUser = GUEST_NAME
+            currentUserType = AccountType.GUEST
+        }
+    }
 
     // Check a string to see if it represents a valid email address.
     // Actual existence of the email is not verified.

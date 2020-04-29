@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             val pass = txtLoginPassword.text.toString()     // Password input by user
             val hashedPass: String?                         // The stored password hash
             var msg: String                                 // This will be the resulting output
-            if (AccountManager.currentUser != "Guest") {
+            if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
                 // Cannot login if a user is already logged in
                 msg = "You must log out first."
             } else if (AccountManager.isValidEmail(email) && AccountManager.isValidPassword(pass)) {
@@ -29,10 +30,15 @@ class MainActivity : AppCompatActivity() {
                 hashedPass = AccountManager.getStoredHash(database, email)
                 if (hashedPass == AccountManager.stringToMD5(pass)) {
                     // If the input password hash matches the stored password hash
-                    AccountManager.currentUser = email
+                    AccountManager.setUser(email)
+                    txtLoginEmail.setText("")
+                    txtLoginPassword.setText("")
                     // We now have a logged in user
-                    msg = "You are logged in!\n"
-                    msg += "Welcome, ${AccountManager.currentUser}!"
+                    msg = "Welcome, ${AccountManager.getCurrentUserEmail()}!"
+                    toast(msg)
+                    msg = ""
+                    val intent = Intent(this, Home::class.java)
+                    startActivity(intent)
                 } else {
                     // The passwords did not match
                     msg = "Password does not match our records."
@@ -41,19 +47,17 @@ class MainActivity : AppCompatActivity() {
                 // The credentials were invalid
                 msg = "Invalid credentials."
             }
-            //tvSignInOutput.text = msg                                   // Print the results
+            tvOutput.text = msg                                   // Print the results
         }
 
         btnCreateAccount.setOnClickListener {
             val intent = Intent(this, CreateAccount::class.java)
-            
+
             startActivity(intent)
         }
 
         btnBeGuest.setOnClickListener {
-            AccountManager.currentUser = "Guest"
-            AccountManager.userType = AccountManager.AccountType.GUEST
-
+            AccountManager.setUser(null)
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.activity_main.btnCreateAccount
+import org.jetbrains.anko.toast
 
 class CreateAccount : AppCompatActivity() {
     val BACK_BUTTON_TAPPED = 0
@@ -41,11 +42,10 @@ class CreateAccount : AppCompatActivity() {
                 txtPassword1.setText("")
                 txtPassword2.setText("")
                 // We now have a logged in user
-                AccountManager.userType = AccountManager.AccountType.USER
-                AccountManager.currentUser = email
-                msg = "Account created!\n\n"
-                msg += "Welcome, ${AccountManager.currentUser}!"
-
+                AccountManager.setUser(email)
+                msg = "Welcome, ${AccountManager.getCurrentUserEmail()}!"
+                toast(msg)
+                msg = ""
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)
             } else {
