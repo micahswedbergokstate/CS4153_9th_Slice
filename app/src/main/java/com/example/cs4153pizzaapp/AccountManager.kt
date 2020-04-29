@@ -9,6 +9,10 @@ import java.security.MessageDigest
 
 object AccountManager {
 
+    enum class AccountType {
+        USER, GUEST
+    }
+    var userType = AccountType.GUEST
     var currentUser = "Guest"
 
     // Check a string to see if it represents a valid email address.

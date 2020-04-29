@@ -46,7 +46,17 @@ class MainActivity : AppCompatActivity() {
 
         btnCreateAccount.setOnClickListener {
             val intent = Intent(this, CreateAccount::class.java)
+            
             startActivity(intent)
         }
+
+        btnBeGuest.setOnClickListener {
+            AccountManager.currentUser = "Guest"
+            AccountManager.userType = AccountManager.AccountType.GUEST
+
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
+
     }
 }

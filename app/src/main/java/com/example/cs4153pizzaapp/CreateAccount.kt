@@ -1,15 +1,21 @@
 package com.example.cs4153pizzaapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.activity_main.btnCreateAccount
 
 class CreateAccount : AppCompatActivity() {
+    val BACK_BUTTON_TAPPED = 0
+    val ACCOUNT_CREATED = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Attempt to store user credentials if:
         // 1. The user does not already exist
@@ -31,20 +37,33 @@ class CreateAccount : AppCompatActivity() {
                 val md5 = AccountManager.stringToMD5(pass1) // Get the password hash
                 // Create the user!
                 AccountManager.createUser(database, email, md5)
+                txtEmail.setText("")
+                txtPassword1.setText("")
+                txtPassword2.setText("")
                 // We now have a logged in user
+                AccountManager.userType = AccountManager.AccountType.USER
                 AccountManager.currentUser = email
-                msg = "User created.\n"
+                msg = "Account created!\n\n"
                 msg += "Welcome, ${AccountManager.currentUser}!"
+
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
             } else {
                 // The credentials were invalid.
-                msg = "Invalid credentials. Enter your email address and password.\n"
+                msg = "Invalid credentials. Enter your email address and password.\n\n"
                 msg += "Password requirements:\n"
                 msg += " * 8-32 characters in length\n"
                 msg += " * Can contain numbers\n"
                 msg += " * Can contain uppercase letters\n"
                 msg += " * Can contain lowercase letters\n"
             }
-            //tvCreateOutput.text = msg                                   // Print the results
+            tvOutput.text = msg                                   // Print the results
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+
+        return super.onSupportNavigateUp()
     }
 }
