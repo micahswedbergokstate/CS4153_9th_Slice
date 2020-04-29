@@ -7,32 +7,50 @@ import org.jetbrains.anko.db.select
 import java.math.BigInteger
 import java.security.MessageDigest
 
+// USAGE:
+// 
+// If you want to determine if the current user is a logged in user:
+//      if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
+//          // do stuff if they are a logged in user
+//      }
+//
+// And for detecting if they are a guest:
+//      if (AccountManager.getCurrentUserType() == AccountManager.AccountType.GUEST) {
+//          // do stuff if they are a guest
+//      }
+//
+// If you want to write a simple message, like "Thank you, <user/guest>", then just use
+//      var user = AccountManager.getUser()
+// This will return a string with either an email address, or the word "Guest", depending on current type.
+
 object AccountManager {
 
-    enum class AccountType {
+    enum class UserType {
         USER, GUEST
     }
 
     private val GUEST_NAME = "Guest"
-    private var currentUserType = AccountType.GUEST
-
+    private var currentUserType = UserType.GUEST
     private var currentUser = GUEST_NAME
 
-    fun getCurrentUserType(): AccountType {
+    // Get the current user type
+    fun getCurrentUserType(): UserType {
         return currentUserType
     }
 
-    fun getCurrentUserEmail(): String {
+    // Get the current user email or "Guest"
+    fun getUser(): String {
         return currentUser
     }
 
+    // Set the user, null value logs the user out.
     fun setUser(email: String?) {
         if (email != null) {
             currentUser = email
-            currentUserType = AccountType.USER
+            currentUserType = UserType.USER
         } else {
             currentUser = GUEST_NAME
-            currentUserType = AccountType.GUEST
+            currentUserType = UserType.GUEST
         }
     }
 

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             val pass = txtLoginPassword.text.toString()     // Password input by user
             val hashedPass: String?                         // The stored password hash
             var msg: String                                 // This will be the resulting output
-            if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
+            if (AccountManager.getCurrentUserType() == AccountManager.UserType.USER) {
                 // Cannot login if a user is already logged in
                 msg = "You must log out first."
             } else if (AccountManager.isValidEmail(email) && AccountManager.isValidPassword(pass)) {
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     txtLoginEmail.setText("")
                     txtLoginPassword.setText("")
                     // We now have a logged in user
-                    msg = "Welcome, ${AccountManager.getCurrentUserEmail()}!"
+                    msg = "Welcome, ${AccountManager.getUser()}!"
                     toast(msg)
                     msg = ""
                     val intent = Intent(this, Home::class.java)

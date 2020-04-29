@@ -3,7 +3,6 @@ package com.example.cs4153pizzaapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_home.*
 import org.jetbrains.anko.toast
@@ -14,7 +13,7 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
+        if (AccountManager.getCurrentUserType() == AccountManager.UserType.USER) {
             btnLogin.isVisible = false
             btnLogout.isVisible = true
         } else {
