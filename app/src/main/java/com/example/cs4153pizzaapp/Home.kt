@@ -35,7 +35,21 @@ class Home : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
+        btnAbout.setOnClickListener {
+            val intent = Intent(this, About::class.java)
+            startActivity(intent)
+        }
+
+        btnOrderPizza.setOnClickListener {
+            val intent = Intent(this, SelectPizza::class.java)
+            startActivity(intent)
+        }
+
+        btnOrderEntree.setOnClickListener {
+            val intent = Intent(this, SelectSides::class.java)
             startActivity(intent)
         }
     }

@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="294dp" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnSideSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
