@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="217dp" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/btnHome"
         android:layout_width="173dp"
         android:layout_height="60dp"
         android:layout_marginBottom="25dp"
@@ -42,7 +42,7 @@
         tools:layout_editor_absoluteY="294dp" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/btnCheckout"
         android:layout_width="192dp"
         android:layout_height="60dp"
         android:layout_marginBottom="25dp"
