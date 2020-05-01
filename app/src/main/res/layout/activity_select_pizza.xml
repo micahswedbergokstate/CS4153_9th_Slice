@@ -27,4 +27,85 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TableLayout
+        android:layout_width="409dp"
+        android:layout_height="194dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSideSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartText">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical">
+
+            <Button
+                android:id="@+id/btnCheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheese" />
+
+            <Button
+                android:id="@+id/btnPepperoni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pepperoni" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical">
+
+            <Button
+                android:id="@+id/btnSausage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sausage" />
+
+            <Button
+                android:id="@+id/btnHawaiian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hawaiian" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical">
+
+            <Button
+                android:id="@+id/btnVeggie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Veggie" />
+
+            <Button
+                android:id="@+id/btnSupreme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Supreme" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical">
+
+            <Button
+                android:id="@+id/btnBBQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BBQ" />
+
+            <Button
+                android:id="@+id/btnAlfredo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alfredo" />
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
