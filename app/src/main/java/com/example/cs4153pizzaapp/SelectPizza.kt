@@ -11,6 +11,8 @@ class SelectPizza : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_pizza)
 
+        cartText.text = "Cart: $" + Order.total.toString()
+
         btnSideSelect.setOnClickListener {
             val intent = Intent(this, SelectSides::class.java)
             startActivity(intent)

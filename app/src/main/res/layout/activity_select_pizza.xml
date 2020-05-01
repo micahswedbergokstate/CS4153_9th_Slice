@@ -8,20 +8,15 @@
     tools:context=".SelectPizza">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/cartText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Cart: 0 items - $0.00"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List of Pizza Types"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="294dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnSideSelect"
