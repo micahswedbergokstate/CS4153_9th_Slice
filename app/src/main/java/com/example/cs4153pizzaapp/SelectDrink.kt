@@ -83,7 +83,7 @@ class SelectDrink : AppCompatActivity() {
 
     fun countItems(item: String): Int {
         var count = 0
-        for(i in Order.sides) {
+        for(i in Order.drinks) {
             if (i.name==item) count++
         }
         return count

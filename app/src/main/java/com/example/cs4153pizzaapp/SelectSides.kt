@@ -29,13 +29,13 @@ class SelectSides : AppCompatActivity() {
 
         btnAddSticks.setOnClickListener {
             Order.addSide(Side("Breadsticks"))
-            textSaladCount.text = "  " + countItems("Breadsticks") + "  "
+            textStickCount.text = "  " + countItems("Breadsticks") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveSticks.setOnClickListener {
             Order.removeSide("Breadsticks")
-            textSaladCount.text = "  " + countItems("Breadsticks") + "  "
+            textStickCount.text = "  " + countItems("Breadsticks") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
