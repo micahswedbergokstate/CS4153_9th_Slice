@@ -15,7 +15,7 @@ class Home : AppCompatActivity() {
 
         cartText.text = "Cart: $" + Order.total.toString()
 
-        if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
+        if (AccountManager.getCurrentUserType() == AccountManager.UserType.USER) {
             btnLogin.isVisible = false
             btnLogout.isVisible = true
         } else {
