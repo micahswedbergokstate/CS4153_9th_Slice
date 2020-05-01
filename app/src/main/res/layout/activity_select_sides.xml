@@ -39,12 +39,34 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breadsticks - $2.99  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
             <Button
-                android:id="@+id/btnBreadsticks"
+                android:id="@+id/btnAddSticks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Breadsticks" />
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/textStickCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveSticks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow
@@ -52,12 +74,34 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salad - $1.99"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
             <Button
-                android:id="@+id/btnSalad"
+                android:id="@+id/btnAddSalad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Salad" />
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/textSaladCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveSalad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow

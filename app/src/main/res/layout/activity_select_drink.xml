@@ -29,6 +29,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="407dp"
         android:layout_height="244dp"
         app:layout_constraintBottom_toTopOf="@+id/btnReviewOrder"
@@ -41,11 +42,33 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnCoke"
+            <TextView
+                android:id="@+id/Coca-Cola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Coca-Cola" />
+                android:text="Coca-Cola"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btnAddCoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/cokeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveCoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow
@@ -53,11 +76,33 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnDietCoke"
+            <TextView
+                android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diet Coke" />
+                android:text="Diet Coke"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btnAddDietCoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/dietCokeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveDietCoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow
@@ -65,11 +110,33 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnSprite"
+            <TextView
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sprite" />
+                android:text="Sprite"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btnAddSprite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/spriteCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveSprite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow
@@ -77,11 +144,33 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnFanta"
+            <TextView
+                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fanta" />
+                android:text="Fanta"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btnAddFanta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/fantaCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveFanta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
         <TableRow
@@ -89,13 +178,52 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnDrPepper"
+            <TextView
+                android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dr. Pepper" />
+                android:text="Dr. Pepper"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btnAddDrPepper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/drPepperCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  0  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/btnRemoveDrPepper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="175dp"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginRight="177dp"
+        android:layout_marginBottom="44dp"
+        android:text="Drinks - $0.99"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,9 +14,42 @@ class SelectSides : AppCompatActivity() {
 
         cartText.text = "Cart: $" + Order.total.toString()
 
+        //Entrees and Sides
+        btnAddSalad.setOnClickListener {
+            Order.addSide(Side("Salad"))
+            textSaladCount.text = "  " + countItems("Salad") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+
+        btnRemoveSalad.setOnClickListener {
+            Order.removeSide("Salad")
+            textSaladCount.text = "  " + countItems("Salad") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+
+        btnAddSticks.setOnClickListener {
+            Order.addSide(Side("Breadsticks"))
+            textSaladCount.text = "  " + countItems("Breadsticks") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+
+        btnRemoveSticks.setOnClickListener {
+            Order.removeSide("Breadsticks")
+            textSaladCount.text = "  " + countItems("Breadsticks") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+
         btnDrinkSelect.setOnClickListener {
             val intent = Intent(this, SelectDrink::class.java)
             startActivity(intent)
         }
+    }
+
+    fun countItems(item: String): Int {
+        var count = 0
+        for(i in Order.sides) {
+            if (i.name==item) count++
+        }
+        return count
     }
 }

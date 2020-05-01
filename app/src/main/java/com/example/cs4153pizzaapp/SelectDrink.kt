@@ -13,10 +13,32 @@ class SelectDrink : AppCompatActivity() {
 
         cartText.text = "Cart: $" + Order.total.toString()
 
+        //Drinks
+        btnAddCoke.setOnClickListener {
+            Order.addSide(Side("Coke"))
+            cokeCount.text = "  " + countItems("Coke") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+
+        btnRemoveCoke.setOnClickListener {
+            Order.removeSide("Coke")
+            cokeCount.text = "  " + countItems("Coke") + "  "
+            cartText.text = "Cart: $" + Order.total.toString()
+        }
+        //etc
+
         btnReviewOrder.setOnClickListener {
             val intent = Intent(this, ReviewOrder::class.java)
             startActivity(intent)
         }
 
+    }
+
+    fun countItems(item: String): Int {
+        var count = 0
+        for(i in Order.sides) {
+            if (i.name==item) count++
+        }
+        return count
     }
 }

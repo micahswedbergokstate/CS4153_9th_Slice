@@ -48,6 +48,7 @@ class CreateAccount : AppCompatActivity() {
                 msg = ""
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 // The credentials were invalid.
                 msg = "Invalid credentials. Enter your email address and password.\n\n"
