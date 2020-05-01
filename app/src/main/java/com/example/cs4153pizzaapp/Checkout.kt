@@ -21,6 +21,7 @@ class Checkout : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
+        appExecutors = AppExecutors()
 
         btnConfirmOrder.setOnClickListener {
 
