@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".SelectPizza">
 
+    <Button
+        android:id="@+id/btnMYO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make your own"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     <TextView
         android:id="@+id/cartText"
         android:layout_width="wrap_content"
@@ -29,8 +38,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TableLayout
-        android:layout_width="409dp"
-        android:layout_height="194dp"
+        android:id="@+id/tableLayout"
+        android:layout_width="411dp"
+        android:layout_height="191dp"
         app:layout_constraintBottom_toTopOf="@+id/btnSideSelect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,14 +53,14 @@
 
             <Button
                 android:id="@+id/btnCheese"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Cheese" />
 
             <Button
                 android:id="@+id/btnPepperoni"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Pepperoni" />
         </TableRow>
 
@@ -61,14 +71,14 @@
 
             <Button
                 android:id="@+id/btnSausage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Sausage" />
 
             <Button
                 android:id="@+id/btnHawaiian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Hawaiian" />
         </TableRow>
 
@@ -79,14 +89,14 @@
 
             <Button
                 android:id="@+id/btnVeggie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Veggie" />
 
             <Button
                 android:id="@+id/btnSupreme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Supreme" />
         </TableRow>
 
@@ -97,15 +107,21 @@
 
             <Button
                 android:id="@+id/btnBBQ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="BBQ" />
 
             <Button
                 android:id="@+id/btnAlfredo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Alfredo" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical" />
+
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
