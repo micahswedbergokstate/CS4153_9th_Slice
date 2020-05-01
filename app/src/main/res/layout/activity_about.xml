@@ -10,24 +10,21 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="636dp"
         android:text="Welcome to"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="309dp"
         android:layout_height="74dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginLeft="49dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
         android:layout_marginBottom="35dp"
         android:text="Located in the tall mountains of Stillwater OK, the 9th Slice Pizzeria offers all of your favorite pizza types. Swing on by and check out our selection!"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
@@ -37,14 +34,13 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="306dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginLeft="37dp"
+        android:layout_width="182dp"
+        android:layout_height="42dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="2dp"
         android:text="South of the Kansas Border, \nNorth of the Red River"
         app:layout_constraintBottom_toTopOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -52,9 +48,9 @@
         android:id="@+id/textView23"
         android:layout_width="312dp"
         android:layout_height="163dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginLeft="49dp"
+        android:layout_marginTop="2dp"
         android:text="The 9th Slice Pizzaria honors its namesake by cutting each and every pizza ordered into 9 perfect triangle slices using our patent pending specialty pizza slicer! Big family? No Problem! Ten friends, but one of them stole your hamster in the 4th grade? We've got you covered! Everywhere else offeres boring pizza with only 8 slices. Pick yourself up some pizza fun with the 9th slice Pizzas!"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -62,16 +58,11 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="263dp"
-        android:layout_marginRight="263dp"
         android:text="Location"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -79,10 +70,6 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
         android:layout_marginBottom="1dp"
         android:text="9th Slice Pizzeria"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -95,11 +82,10 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
         android:layout_marginTop="2dp"
         android:text="Why the 9th Slice?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 </androidx.constraintlayout.widget.ConstraintLayout>
