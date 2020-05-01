@@ -14,20 +14,17 @@ class PizzaCustomization : AppCompatActivity() {
 
         cartText.text = "Cart: $" + Order.total.toString()
 
-        //Access current working pizza
-        //Order.pizzas.last()
-
         //populate check boxes
-        if (Order.pizzas.last().sauce=="Marinara") btnMarinara.isChecked=true
-        else if (Order.pizzas.last().sauce=="Alfredo") btnAlfredo.isChecked=true
+        if (Order.pizza.sauce=="Marinara") btnMarinara.isChecked=true
+        else if (Order.pizza.sauce=="Alfredo") btnAlfredo.isChecked=true
 
-        for (meat in Order.pizzas.last().meats) {
+        for (meat in Order.meats) {
             if (meat=="Pepperoni") btnPepperoni.isChecked=true
             if (meat=="Sausage") btnSausage.isChecked=true
             if (meat=="Ham") btnHam.isChecked=true
         }
 
-        for (veggie in Order.pizzas.last().veggies) {
+        for (veggie in Order.veggies) {
             if (veggie=="Pepper") btnPeppers.isChecked=true
             if (veggie=="Onion") btnOnions.isChecked=true
             if (veggie=="Olive") btnOlives.isChecked=true
@@ -37,46 +34,46 @@ class PizzaCustomization : AppCompatActivity() {
         //respond to user input
         //I don't really know how this works
         btnMarinara.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().sauce="Marinara"
+            if (checked) Order.pizza.sauce="Marinara"
         }
 
         btnAlfredo.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().sauce = "Alfredo"
+            if (checked) Order.pizza.sauce = "Alfredo"
         }
 
         btnPepperoni.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addMeat("Pepperoni")
-            else Order.pizzas.last().removeMeat("Pepperoni")
+            if (checked) Order.addMeat("Pepperoni")
+            else Order.removeMeat("Pepperoni")
         }
 
         btnSausage.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addMeat("Sausage")
-            else Order.pizzas.last().removeMeat("Sausage")
+            if (checked) Order.addMeat("Sausage")
+            else Order.removeMeat("Sausage")
         }
 
         btnHam.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addMeat("Ham")
-            else Order.pizzas.last().removeMeat("Ham")
+            if (checked) Order.addMeat("Ham")
+            else Order.removeMeat("Ham")
         }
 
         btnPeppers.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addVeggies("Peppers")
-            else Order.pizzas.last().removeVeggies("Peppers")
+            if (checked) Order.addVeggie("Peppers")
+            else Order.removeVeggie("Peppers")
         }
 
         btnOnions.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addVeggies("Onions")
-            else Order.pizzas.last().removeVeggies("Onions")
+            if (checked) Order.addVeggie("Onions")
+            else Order.removeVeggie("Onions")
         }
 
         btnOlives.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addVeggies("Olives")
-            else Order.pizzas.last().removeVeggies("Olives")
+            if (checked) Order.addVeggie("Olives")
+            else Order.removeVeggie("Olives")
         }
 
         btnPineapples.setOnCheckedChangeListener { _: CompoundButton, checked: Boolean ->
-            if (checked) Order.pizzas.last().addVeggies("Pineapples")
-            else Order.pizzas.last().removeVeggies("Pineapples")
+            if (checked) Order.addVeggie("Pineapples")
+            else Order.removeVeggie("Pineapples")
         }
 
         //close activity
