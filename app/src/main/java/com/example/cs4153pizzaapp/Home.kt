@@ -13,7 +13,9 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        if (AccountManager.getCurrentUserType() == AccountManager.UserType.USER) {
+        cartText.text = "Cart: $" + Order.total.toString()
+
+        if (AccountManager.getCurrentUserType() == AccountManager.AccountType.USER) {
             btnLogin.isVisible = false
             btnLogout.isVisible = true
         } else {

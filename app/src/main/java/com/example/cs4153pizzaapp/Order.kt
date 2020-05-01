@@ -12,7 +12,7 @@ object Order {
     private var subtotal : Double = 0.0
     private var tax : Double = 0.0
     var tip : Double = 0.0
-    var total : Double = 0.0
+    var total : Double = 0.00
 
     // Called each time an item is added or subtracted from the cart
     private fun calculateTotal() {

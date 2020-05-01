@@ -11,6 +11,8 @@ class SelectDrink : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_drink)
 
+        cartText.text = "Cart: $" + Order.total.toString()
+
         btnReviewOrder.setOnClickListener {
             val intent = Intent(this, ReviewOrder::class.java)
             startActivity(intent)
