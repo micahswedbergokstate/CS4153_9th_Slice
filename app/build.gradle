@@ -36,4 +36,7 @@ dependencies {
 
     // Added by Scott for the ANKO SQLite Database module.
     implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+    // Added by Scott for java email sending
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
 }

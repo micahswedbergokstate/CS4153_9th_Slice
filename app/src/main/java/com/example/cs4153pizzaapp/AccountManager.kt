@@ -29,6 +29,11 @@ object AccountManager {
         USER, GUEST
     }
 
+    const val SENDER_EMAIL = "ninthslice@gmail.com"
+    const val SENDER_PASSWORD = "password123*"
+    const val SEND_MAIL_SUBJECT = "Your Order is being crafted!"
+    const val SEND_MAIL_BODY = "Thank you for ordering at Ninth Slice! "
+
     private val GUEST_NAME = "Guest"
     private var currentUserType = UserType.GUEST
     private var currentUser = GUEST_NAME
