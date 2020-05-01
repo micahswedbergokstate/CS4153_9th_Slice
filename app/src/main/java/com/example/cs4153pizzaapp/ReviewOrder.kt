@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_review_order.*
+import kotlin.math.roundToInt
 
 
 class ReviewOrder : AppCompatActivity() {
@@ -18,6 +19,7 @@ class ReviewOrder : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_order)
 
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         //hopefully an example of how to generate the order view. Need to be able to run the app before this can be tested though
         /*for (i in 1..20) {
