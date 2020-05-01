@@ -11,12 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cart: 0 items - $0.00"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button9"
@@ -29,13 +27,149 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Some sort of interface to add toppings, choose crust, etc..."
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TableLayout
+        android:layout_width="391dp"
+        android:layout_height="327dp"
+        app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cartText">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Sauce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sauce"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rBtnMarinara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marinara" />
+
+            <RadioButton
+                android:id="@+id/rBtnAlfredo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alfredo" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/spacer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Meat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meat"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rBtnPepperoni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pepperoni" />
+
+            <RadioButton
+                android:id="@+id/rBtnSausage"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:text="Sausage" />
+
+            <RadioButton
+                android:id="@+id/rBtnHam"
+                android:layout_width="145dp"
+                android:layout_height="match_parent"
+                android:text="Canadian Bacon" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/spacer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   "
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Veggies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Veggies"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rBtnPeppers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="Peppers" />
+
+            <RadioButton
+                android:id="@+id/rBtnOnions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="Onions" />
+
+            <RadioButton
+                android:id="@+id/rBtnOlives"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10000"
+                android:text="Olives" />
+
+            <RadioButton
+                android:id="@+id/rBtnPineapples"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="Pineapples" />
+        </TableRow>
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
