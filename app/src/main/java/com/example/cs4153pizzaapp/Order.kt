@@ -143,8 +143,9 @@ object Order {
 
     // ---------------------------------------------------------------------------------------------
     // Adding/removing drinks
-    fun addDrink(d : Drink) {
-        this.drinks.add(d)
+    fun addDrink(d : String) {
+        var drink = Drink(d)
+        this.drinks.add(drink)
         this.calculateTotal()
     }
     fun removeDrink(d : String) {

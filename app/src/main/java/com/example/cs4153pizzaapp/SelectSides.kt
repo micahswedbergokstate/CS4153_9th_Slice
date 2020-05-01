@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import kotlinx.android.synthetic.main.activity_select_sides.*
+import kotlin.math.roundToInt
 
 
 class SelectSides : AppCompatActivity() {
@@ -12,7 +13,7 @@ class SelectSides : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_sides)
 
-        cartText.text = "Cart: $" + Order.total.toString()
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         //Entrees and Sides
         btnAddSalad.setOnClickListener {

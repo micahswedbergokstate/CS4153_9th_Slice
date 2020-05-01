@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import kotlinx.android.synthetic.main.activity_select_drink.*
+import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 class SelectDrink : AppCompatActivity() {
 
@@ -11,65 +13,65 @@ class SelectDrink : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_drink)
 
-        cartText.text = "Cart: $" + Order.total.toString()
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         //Drinks
         btnAddCoke.setOnClickListener {
-            Order.addSide(Side("Coke"))
+            Order.addDrink("Coke")
             cokeCount.text = "  " + countItems("Coke") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveCoke.setOnClickListener {
-            Order.removeSide("Coke")
+            Order.removeDrink("Coke")
             cokeCount.text = "  " + countItems("Coke") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnAddDietCoke.setOnClickListener {
-            Order.addSide(Side("Diet Coke"))
+            Order.addDrink("Coke")
             cokeCount.text = "  " + countItems("Diet Coke") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveDietCoke.setOnClickListener {
-            Order.removeSide("Diet Coke")
+            Order.removeDrink("Diet Coke")
             cokeCount.text = "  " + countItems("Diet Coke") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnAddSprite.setOnClickListener {
-            Order.addSide(Side("Sprite"))
+            Order.addDrink("Sprite")
             spriteCount.text = "  " + countItems("Sprite") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveSprite.setOnClickListener {
-            Order.removeSide("Sprite")
+            Order.removeDrink("Sprite")
             spriteCount.text = "  " + countItems("Sprite") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnAddFanta.setOnClickListener {
-            Order.addSide(Side("Fanta"))
+            Order.addDrink("Fanta")
             fantaCount.text = "  " + countItems("Fanta") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveFanta.setOnClickListener {
-            Order.removeSide("Fanta")
+            Order.removeDrink("Fanta")
             fantaCount.text = "  " + countItems("Fanta") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnAddDrPepper.setOnClickListener {
-            Order.addSide(Side("Dr Pepper"))
+            Order.addDrink("Dr Pepper")
             drPepperCount.text = "  " + countItems("Dr Pepper") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }
 
         btnRemoveDrPepper.setOnClickListener {
-            Order.removeSide("Dr Pepper")
+            Order.removeDrink("Dr Pepper")
             drPepperCount.text = "  " + countItems("Dr Pepper") + "  "
             cartText.text = "Cart: $" + Order.total.toString()
         }

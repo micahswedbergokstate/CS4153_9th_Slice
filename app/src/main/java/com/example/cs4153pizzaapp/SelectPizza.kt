@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import kotlinx.android.synthetic.main.activity_select_pizza.*
+import kotlin.math.roundToInt
 
 class SelectPizza : AppCompatActivity() {
 
@@ -11,7 +12,7 @@ class SelectPizza : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_pizza)
 
-        cartText.text = "Cart: $" + Order.total.toString()
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         //Pizza
         btnCheese.setOnClickListener {

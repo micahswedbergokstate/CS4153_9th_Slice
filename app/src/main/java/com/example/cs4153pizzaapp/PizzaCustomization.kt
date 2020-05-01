@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pizza_customization.*
+import kotlin.math.roundToInt
 
 
 class PizzaCustomization : AppCompatActivity() {
@@ -12,7 +13,7 @@ class PizzaCustomization : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pizza_customization)
 
-        cartText.text = "Cart: $" + Order.total.toString()
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         //populate check boxes
         if (Order.pizza.sauce=="Marinara") btnMarinara.isChecked=true

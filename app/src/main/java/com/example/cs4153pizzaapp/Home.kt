@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_home.*
 import org.jetbrains.anko.toast
+import kotlin.math.roundToInt
 
 class Home : AppCompatActivity() {
 
@@ -13,7 +14,7 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        cartText.text = "Cart: $" + Order.total.toString()
+        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
 
         if (AccountManager.getCurrentUserType() == AccountManager.UserType.USER) {
             btnLogin.isVisible = false

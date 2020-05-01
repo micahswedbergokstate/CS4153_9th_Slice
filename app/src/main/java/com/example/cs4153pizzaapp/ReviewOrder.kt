@@ -20,7 +20,7 @@ class ReviewOrder : AppCompatActivity() {
 
 
         //hopefully an example of how to generate the order view. Need to be able to run the app before this can be tested though
-        for (i in 1..20) {
+        /*for (i in 1..20) {
             val btn = Button(this)
             btn.id = i
             val id: Int = btn.id
@@ -34,7 +34,7 @@ class ReviewOrder : AppCompatActivity() {
                     "Button clicked index = $id", Toast.LENGTH_SHORT
                 ).show()
             }
-        }
+        }*/
 
 
         btnHome.setOnClickListener {
