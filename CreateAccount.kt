@@ -43,11 +43,12 @@ class CreateAccount : AppCompatActivity() {
                 txtPassword2.setText("")
                 // We now have a logged in user
                 AccountManager.setUser(email)
-                msg = "Welcome, ${AccountManager.getCurrentUserEmail()}!"
+                msg = "Welcome, ${AccountManager.getUser()}!"
                 toast(msg)
                 msg = ""
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 // The credentials were invalid.
                 msg = "Invalid credentials. Enter your email address and password.\n\n"

@@ -6,7 +6,10 @@ Object to contain the pizza order, as well as Pizza, Side, and Drink classes.
 
 object Order {
     // Properties of an Order
-    var pizzas : MutableList<Pizza> = ArrayList()
+    var pizza : Pizza = Pizza("None")
+    var veggies : MutableList<String> = ArrayList()
+    var meats : MutableList<String> = ArrayList()
+
     var sides : MutableList<Side> = ArrayList()
     var drinks : MutableList<Drink> = ArrayList()
     private var subtotal : Double = 0.0
@@ -19,12 +22,17 @@ object Order {
         this.subtotal = 0.0
         this.tax = 0.0
         this.total = 0.0
-        for (i : Int in 0 until this.pizzas.size) {
-            this.subtotal += this.pizzas.get(i).price
-        }
+
+        subtotal += pizza.price
+
+        subtotal += (0.79 * this.veggies.size)
+
+        subtotal += (0.99 * this.meats.size)
+
         for (i : Int in 0 until this.sides.size) {
             this.subtotal += this.sides.get(i).price
         }
+
         for (i : Int in 0 until this.drinks.size) {
             this.subtotal += this.drinks.get(i).price
         }
@@ -38,49 +46,138 @@ object Order {
 
     // Adding/removing pizzas
     fun addPizza(p : Pizza) {
-        this.pizzas.add(p)
-        this.calculateTotal()
-    }
-    fun removePizza(p : Pizza) {
-        try {
-            this.pizzas.remove(p)
-        } catch (e : Exception) { } // In case the pizza doesn't exist
+        this.pizza = p
+        when(this.pizza.pizzaType) {
+            "Pepperoni" -> {
+                this.meats.add("Pepperoni")
+            }
+            "Sausage" -> {
+                this.meats.add("Sausage")
+            }
+            "Hawaiian" -> {
+                this.veggies.add("Pineapple")
+                this.meats.add("Canadian Bacon")
+            }
+            "Veggie" -> {
+                this.veggies.add("Peppers")
+                this.veggies.add("Onions")
+                this.veggies.add("Olives")
+            }
+            "Supreme" -> {
+                this.meats.add("Sausage")
+                this.meats.add("Pepperoni")
+                this.veggies.add("Peppers")
+                this.veggies.add("Onions")
+                this.veggies.add("Olives")
+            }
+            "BBQ" -> {
+                this.meats.add("Chicken")
+            }
+        }
         this.calculateTotal()
     }
 
+    // ---------------------------------------------------------------------------------------------
+    // Add/remove veggies
+    fun addVeggie(v : String) {
+        this.veggies.add(v)
+    }
+    fun removeVeggie(v : String) {
+        try {
+            var veggieIndex : Int = 100 // Arbitrary index that is unlikely
+            for (i : Int in 0 until this.veggies.size) {
+                if (this.veggies[i] == v) {
+                    veggieIndex = i
+                }
+                else { }
+            }
+            if (veggieIndex != 100) {
+                this.veggies.removeAt(veggieIndex)
+            }
+        } catch (e : Exception) { }
+        calculateTotal()
+    }
+
+    // ---------------------------------------------------------------------------------------------
+    // Add/remove meats
+    fun addMeat(m : String) {
+        this.meats.add(m)
+    }
+    fun removeMeat(m : String) {
+        try {
+            var meatIndex : Int = 100 // Arbitrary index that is unlikely
+            for (i : Int in 0 until this.meats.size) {
+                if (this.meats[i] == m) {
+                    meatIndex = i
+                }
+                else { }
+            }
+            if (meatIndex != 100) {
+                this.meats.removeAt(meatIndex)
+            }
+        } catch (e : Exception) { }
+        calculateTotal()
+    }
+
+    // ---------------------------------------------------------------------------------------------
     // Adding/removing sides
     fun addSide(s : Side) {
         this.sides.add(s)
         this.calculateTotal()
     }
-    fun removeSide(s : Side) {
+    fun removeSide(s : String) {
         try {
-            this.sides.remove(s)
+            var sideIndex : Int = 100 // Arbitrary index that is unlikely
+            for (i : Int in 0 until this.sides.size) {
+                if (this.sides[i].name == s) {
+                    sideIndex = i
+                }
+                else { }
+            }
+            if (sideIndex != 100) {
+                this.sides.removeAt(sideIndex)
+            }
         } catch (e : Exception) { }
         this.calculateTotal()
     }
 
+    // ---------------------------------------------------------------------------------------------
     // Adding/removing drinks
-    fun addDrink(d : Drink) {
-        this.drinks.add(d)
+    fun addDrink(d : String) {
+        var drink = Drink(d)
+        this.drinks.add(drink)
         this.calculateTotal()
     }
-    fun removeDrink(d : Drink) {
+    fun removeDrink(d : String) {
         try {
-            this.drinks.remove(d)
+            var drinkIndex : Int = 100 // Arbitrary index that is unlikely
+            for (i : Int in 0 until this.drinks.size) {
+                if (this.drinks[i].name == d) {
+                    drinkIndex = i
+                }
+                else { }
+            }
+            if (drinkIndex != 100) {
+                this.drinks.removeAt(drinkIndex)
+            }
         } catch (e : Exception) { }
         this.calculateTotal()
     }
 
     // Clear the order, since there is only one working Order object
     fun clearOrder() {
-        this.pizzas.clear()
+        this.pizza = Pizza("None")
         this.sides.clear()
         this.drinks.clear()
         this.subtotal = 0.0
         this.tax = 0.0
         this.tip = 0.0
         this.total = 0.0
+    }
+
+    // For displaying the total elsewhere
+    override fun toString() : String {
+        return this.total.toString()
     }
 }
 
@@ -91,8 +188,6 @@ data class Pizza(var pizzaType : String) {
     var price : Double = 0.0
     var cheese : Boolean = true
     var sauce : String = ""
-    var veggies : MutableList<String> = ArrayList()
-    var meats : MutableList<String> = ArrayList()
 
     constructor(pizzaType : String,
                 cheese : Boolean,
@@ -109,90 +204,39 @@ data class Pizza(var pizzaType : String) {
             "Pepperoni" -> {
                 this.price = 8.99
                 this.sauce = "Marinara"
-                this.meats.add("Pepperoni")
             }
             "Sausage" -> {
                 this.price = 8.99
                 this.sauce = "Marinara"
-                this.meats.add("Sausage")
             }
             "Hawaiian" -> {
                 this.price = 9.99
                 this.sauce = "Marinara"
-                this.veggies.add("Pineapple")
-                this.meats.add("Canadian Bacon")
             }
             "Veggie" -> {
                 this.price = 10.99
                 this.sauce = "Marinara"
-                this.veggies.add("Peppers")
-                this.veggies.add("Onions")
-                this.veggies.add("Olives")
             }
             "Supreme" -> {
                 this.price = 11.99
                 this.sauce = "Marinara"
-                this.meats.add("Sausage")
-                this.meats.add("Pepperoni")
-                this.veggies.add("Peppers")
-                this.veggies.add("Onions")
-                this.veggies.add("Olives")
             }
             "BBQ" -> {
                 this.price = 10.99
                 this.sauce = "BBQ"
-                this.meats.add("Chicken")
             }
             "Alfredo" -> {
                 this.price = 7.99
                 this.sauce = "Alfredo"
             }
-        }
-
-        // -----------------------------------------------------------------------------------------
-        // Functions for adding/subtracting elements which will also modify price
-
-        // Cheese
-        fun addCheese() {
-            if (!this.cheese) {
+            "MYO" -> {
+                this.price = 6.99
                 this.cheese = true
-                this.price += 0.49
             }
-            else { }
-        }
-        fun omitCheese() {
-            if (this.cheese) {
-                this.cheese = false
-                this.price -= 0.49
-            }
-            else { }
+
+            "None" -> { }
         }
 
-        // Sauce variable can simply be modified; no price difference
-
-        // Veggies
-        fun addVeggie(v : String) {
-            this.price += 0.79
-            this.veggies.add(v)
-        }
-        fun removeVeggie(v : String) {
-            try {
-                this.veggies.remove(v)
-                this.price -= 0.79
-            } catch (e : Exception) { } // In case the specified veggie doesn't exist
-        }
-
-        // Meat
-        fun addMeat(m : String) {
-            this.price += 0.99
-            this.meats.add(m)
-        }
-        fun removeMeat(m : String) {
-            try {
-                this.meats.remove(m)
-                this.price -= 0.99
-            } catch (e : Exception) { } // In case the specified meat doesn't exist
-        }
     }
 
     override fun toString() : String {
@@ -208,19 +252,6 @@ data class Pizza(var pizzaType : String) {
         }
         // Add sauce
         printout += this.sauce
-        printout += ", "
-        // Add veggie toppings
-        for(element in this.veggies) {
-            var veggie : String = element
-            veggie += ", "
-            printout += veggie
-        }
-        // Add meat toppings
-        for(element in this.meats) {
-            var meat : String = element
-            meat += ", "
-            printout += meat
-        }
 
         return printout
     }

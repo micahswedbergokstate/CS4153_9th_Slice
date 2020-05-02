@@ -13,6 +13,7 @@ class OrderConfirmation : AppCompatActivity() {
 
             btnHome.setOnClickListener {
                 val intent = Intent(this, Home::class.java)
+                Order.clearOrder()
                 startActivity(intent)
             }
     }
