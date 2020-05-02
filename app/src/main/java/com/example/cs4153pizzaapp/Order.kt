@@ -1,19 +1,25 @@
 package com.example.cs4153pizzaapp
 
+import android.util.Log
+
 /*
-Object to contain the pizza order, as well as Pizza, Side, and Drink classes.
+Object to contain the pizza order.
  */
 
 object Order {
     // Properties of an Order
-    var pizza : Pizza = Pizza("None")
+    var pizza = ""
+    var pizzaPrice = 0.00
+    var sauce : String = ""
+    var cheese : Boolean = true
     var veggies : MutableList<String> = ArrayList()
     var meats : MutableList<String> = ArrayList()
 
-    var sides : MutableList<Side> = ArrayList()
-    var drinks : MutableList<Drink> = ArrayList()
-    private var subtotal : Double = 0.0
-    private var tax : Double = 0.0
+    var breadsticks : Int = 0
+    var salads : Int = 0
+    var drinks : MutableList<String> = ArrayList()
+    var subtotal : Double = 0.0
+    var tax : Double = 0.0
     var tip : Double = 0.0
     var total : Double = 0.00
 
@@ -23,47 +29,67 @@ object Order {
         this.tax = 0.0
         this.total = 0.0
 
-        subtotal += pizza.price
+        this.subtotal += this.pizzaPrice
+        Log.d("Pizza:", subtotal.toString())
 
-        subtotal += (0.79 * this.veggies.size)
+        this.subtotal += (0.79 * this.veggies.size)
+        Log.d("Veggies:", subtotal.toString())
 
-        subtotal += (0.99 * this.meats.size)
+        this.subtotal += (0.99 * this.meats.size)
+        Log.d("Meats:", subtotal.toString())
 
-        for (i : Int in 0 until this.sides.size) {
-            this.subtotal += this.sides.get(i).price
-        }
+        this.subtotal += (2.99 * breadsticks.toDouble())
+        Log.d("Breadsticks:", subtotal.toString())
 
-        for (i : Int in 0 until this.drinks.size) {
-            this.subtotal += this.drinks.get(i).price
-        }
+        this.subtotal += (1.99 * salads.toDouble())
+        Log.d("Salads:", subtotal.toString())
+
+        this.subtotal += (0.99 * this.drinks.size)
+        Log.d("Drinks:", subtotal.toString())
 
         // Recalculate tax
         this.tax = this.subtotal * 0.07
+        Log.d("Tax:", tax.toString())
 
         // Redo the total
         this.total = this.subtotal + this.tip + this.tax
+        Log.d("Total:", subtotal.toString())
     }
 
     // Adding/removing pizzas
-    fun addPizza(p : Pizza) {
+    fun addPizza(p : String) {
         this.pizza = p
-        when(this.pizza.pizzaType) {
+        when(this.pizza) {
+            "Cheese" -> {
+                this.pizzaPrice = 7.99
+                this.sauce = "Marinara"
+            }
             "Pepperoni" -> {
+                this.pizzaPrice = 8.99
+                this.sauce = "Marinara"
                 this.meats.add("Pepperoni")
             }
             "Sausage" -> {
+                this.pizzaPrice = 8.99
+                this.sauce = "Marinara"
                 this.meats.add("Sausage")
             }
             "Hawaiian" -> {
+                this.pizzaPrice = 9.99
+                this.sauce = "Marinara"
                 this.veggies.add("Pineapple")
                 this.meats.add("Canadian Bacon")
             }
             "Veggie" -> {
+                this.pizzaPrice = 10.99
+                this.sauce = "Marinara"
                 this.veggies.add("Peppers")
                 this.veggies.add("Onions")
                 this.veggies.add("Olives")
             }
             "Supreme" -> {
+                this.pizzaPrice = 11.99
+                this.sauce = "Marinara"
                 this.meats.add("Sausage")
                 this.meats.add("Pepperoni")
                 this.veggies.add("Peppers")
@@ -71,7 +97,16 @@ object Order {
                 this.veggies.add("Olives")
             }
             "BBQ" -> {
+                this.pizzaPrice = 10.99
+                this.sauce = "BBQ"
                 this.meats.add("Chicken")
+            }
+            "Alfredo" -> {
+                this.pizzaPrice = 7.99
+                this.sauce = "Alfredo"
+            }
+            "MYO" -> {
+                this.pizzaPrice = 6.99
             }
         }
         this.calculateTotal()
@@ -81,6 +116,7 @@ object Order {
     // Add/remove veggies
     fun addVeggie(v : String) {
         this.veggies.add(v)
+        this.calculateTotal()
     }
     fun removeVeggie(v : String) {
         try {
@@ -95,13 +131,14 @@ object Order {
                 this.veggies.removeAt(veggieIndex)
             }
         } catch (e : Exception) { }
-        calculateTotal()
+        this.calculateTotal()
     }
 
     // ---------------------------------------------------------------------------------------------
     // Add/remove meats
     fun addMeat(m : String) {
         this.meats.add(m)
+        this.calculateTotal()
     }
     fun removeMeat(m : String) {
         try {
@@ -116,43 +153,51 @@ object Order {
                 this.meats.removeAt(meatIndex)
             }
         } catch (e : Exception) { }
-        calculateTotal()
+        this.calculateTotal()
     }
 
     // ---------------------------------------------------------------------------------------------
     // Adding/removing sides
-    fun addSide(s : Side) {
-        this.sides.add(s)
+    fun addSide(s : String) {
+        when (s) {
+            "Breadsticks" -> {
+                breadsticks++
+            }
+            "Salad" -> {
+                salads++
+            }
+        }
         this.calculateTotal()
     }
     fun removeSide(s : String) {
-        try {
-            var sideIndex : Int = 100 // Arbitrary index that is unlikely
-            for (i : Int in 0 until this.sides.size) {
-                if (this.sides[i].name == s) {
-                    sideIndex = i
+        when (s) {
+            "Breadsticks" -> {
+                if (breadsticks > 0) {
+                    breadsticks--
                 }
-                else { }
+                else {}
             }
-            if (sideIndex != 100) {
-                this.sides.removeAt(sideIndex)
+            "Salad" -> {
+                if (salads > 0) {
+                    salads--
+                }
+                else {}
             }
-        } catch (e : Exception) { }
+        }
         this.calculateTotal()
     }
 
     // ---------------------------------------------------------------------------------------------
     // Adding/removing drinks
     fun addDrink(d : String) {
-        var drink = Drink(d)
-        this.drinks.add(drink)
+        this.drinks.add(d)
         this.calculateTotal()
     }
     fun removeDrink(d : String) {
         try {
             var drinkIndex : Int = 100 // Arbitrary index that is unlikely
             for (i : Int in 0 until this.drinks.size) {
-                if (this.drinks[i].name == d) {
+                if (this.drinks.get(i) == d) {
                     drinkIndex = i
                 }
                 else { }
@@ -166,8 +211,10 @@ object Order {
 
     // Clear the order, since there is only one working Order object
     fun clearOrder() {
-        this.pizza = Pizza("None")
-        this.sides.clear()
+        this.pizza = ""
+        this.veggies.clear()
+        this.breadsticks = 0
+        this.salads = 0
         this.drinks.clear()
         this.subtotal = 0.0
         this.tax = 0.0
@@ -178,111 +225,5 @@ object Order {
     // For displaying the total elsewhere
     override fun toString() : String {
         return this.total.toString()
-    }
-}
-
-// =================================================================================================
-// Pizza Object
-data class Pizza(var pizzaType : String) {
-    // Properties of a pizza
-    var price : Double = 0.0
-    var cheese : Boolean = true
-    var sauce : String = ""
-
-    constructor(pizzaType : String,
-                cheese : Boolean,
-                sauce : String,
-                veggies : List<String>,
-                meats : List<String>,
-                price : Double): this(pizzaType) {
-        // Defaults. All can be customized when ordering except price.
-        when(pizzaType) {
-            "Cheese" -> {
-                this.price = 7.99
-                this.sauce = "Marinara"
-            }
-            "Pepperoni" -> {
-                this.price = 8.99
-                this.sauce = "Marinara"
-            }
-            "Sausage" -> {
-                this.price = 8.99
-                this.sauce = "Marinara"
-            }
-            "Hawaiian" -> {
-                this.price = 9.99
-                this.sauce = "Marinara"
-            }
-            "Veggie" -> {
-                this.price = 10.99
-                this.sauce = "Marinara"
-            }
-            "Supreme" -> {
-                this.price = 11.99
-                this.sauce = "Marinara"
-            }
-            "BBQ" -> {
-                this.price = 10.99
-                this.sauce = "BBQ"
-            }
-            "Alfredo" -> {
-                this.price = 7.99
-                this.sauce = "Alfredo"
-            }
-            "MYO" -> {
-                this.price = 6.99
-                this.cheese = true
-            }
-
-            "None" -> { }
-        }
-
-    }
-
-    override fun toString() : String {
-        var printout = ""
-        printout += this.pizzaType
-        printout += " pizza with "
-        // Add cheese if applicable
-        when(this.cheese) {
-            true -> {
-                printout += "cheese, "
-            }
-            false -> {}
-        }
-        // Add sauce
-        printout += this.sauce
-
-        return printout
-    }
-}
-
-// =================================================================================================
-// Side object
-
-data class Side(var name : String) {
-    var price : Double = 0.0
-    constructor(name : String,
-                price : Double) : this(name) {
-        when(name) {
-            "Breadsticks" -> this.price = 2.99
-            "Salad" -> this.price = 1.99
-        }
-    }
-
-    override fun toString(): String {
-        return this.name
-    }
-}
-
-// =================================================================================================
-// Drink object
-
-data class Drink(var name : String) {
-    // All drinks are the same price, but this simplifies price calculation in an Order
-    var price : Double = 0.99
-
-    override fun toString(): String {
-        return this.name
     }
 }

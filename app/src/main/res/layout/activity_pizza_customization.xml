@@ -55,17 +55,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <CheckBox
-                android:id="@+id/btnMarinara"
+            <RadioGroup
+                android:id="@+id/sauceSelector"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marinara" />
+                android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/btnAlfredo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alfredo" />
+                <RadioButton
+                    android:id="@+id/marinaraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/marinaraLabel" />
+
+                <RadioButton
+                    android:id="@+id/alfredoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alfredoLabel" />
+
+            </RadioGroup>
 
         </TableRow>
 

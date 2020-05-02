@@ -12,68 +12,68 @@ class SelectPizza : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_pizza)
 
-        cartText.text = "Cart: $" + Order.total.roundToInt().toString()
+        cartText.text = "Subtotal: $" + Order.subtotal.toString()
 
         //Pizza
         btnCheese.setOnClickListener {
-            Order.addPizza(Pizza("Cheese"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Cheese")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnPepperoni.setOnClickListener {
-            Order.addPizza(Pizza("Pepperoni"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Pepperoni")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnSausage.setOnClickListener {
-            Order.addPizza(Pizza("Sausage"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Sausage")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnHawaiian.setOnClickListener {
-            Order.addPizza(Pizza("Hawaiian"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Sausage")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnVeggie.setOnClickListener {
-            Order.addPizza(Pizza("Veggie"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Veggie")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnSupreme.setOnClickListener {
-            Order.addPizza(Pizza("Supreme"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Supreme")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnBBQ.setOnClickListener {
-            Order.addPizza(Pizza("BBQ"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("BBQ")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnAlfredo.setOnClickListener {
-            Order.addPizza(Pizza("Alfredo"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("Alfredo")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
 
         btnMYO.setOnClickListener {
-            Order.addPizza(Pizza("MYO"))
-            cartText.text = "Cart: $" + Order.total.toString()
+            Order.addPizza("MYO")
+            cartText.text = "Subtotal: $" + Order.subtotal.toString()
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
