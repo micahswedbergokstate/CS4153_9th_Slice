@@ -38,12 +38,6 @@ class ReviewOrder : AppCompatActivity() {
             }
         }*/
 
-
-        btnHome.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
-        }
-
         btnCheckout.setOnClickListener {
             val intent = Intent(this, Checkout::class.java)
             startActivity(intent)
