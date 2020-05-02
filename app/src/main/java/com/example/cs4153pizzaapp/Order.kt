@@ -19,9 +19,13 @@ object Order {
     var salads : Int = 0
     var drinks : MutableList<String> = ArrayList()
     var subtotal : Double = 0.0
+    var subtotal_s : String = ""
+    var subtotal_print : String = ""
     var tax : Double = 0.0
     var tip : Double = 0.0
     var total : Double = 0.00
+    var total_s : String = ""
+    var total_print : String = ""
 
     // Called each time an item is added or subtracted from the cart
     private fun calculateTotal() {
@@ -47,6 +51,8 @@ object Order {
         this.subtotal += (0.99 * this.drinks.size)
         Log.d("Drinks:", subtotal.toString())
 
+
+
         // Recalculate tax
         this.tax = this.subtotal * 0.07
         Log.d("Tax:", tax.toString())
@@ -54,6 +60,28 @@ object Order {
         // Redo the total
         this.total = this.subtotal + this.tip + this.tax
         Log.d("Total:", subtotal.toString())
+
+        // Eliminate decimal points beyond cents
+        this.subtotal_s = this.subtotal.toString()
+        var dotIndex1 : Int = this.subtotal_s.length-1
+        for (i : Int in this.subtotal_s.indices) {
+            if (this.subtotal_s[i] == '.') {
+                dotIndex1 = i
+                break
+            }
+        }
+        this.subtotal_print = subtotal_s.substring(0..(dotIndex1+2))
+
+        // Eliminate decimal points beyond cents
+        this.total_s = this.total.toString()
+        var dotIndex2 : Int = this.total_s.length-1
+        for (i : Int in this.total_s.indices) {
+            if (this.total_s[i] == '.') {
+                dotIndex2 = i
+                break
+            }
+        }
+        this.total_print = total_s.substring(0..(dotIndex2+2))
     }
 
     // Adding/removing pizzas

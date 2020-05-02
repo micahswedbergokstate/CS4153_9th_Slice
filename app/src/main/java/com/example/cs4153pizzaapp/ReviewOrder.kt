@@ -19,7 +19,7 @@ class ReviewOrder : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_order)
 
-        cartText.text = "Subtotal: $" + Order.subtotal.toString()
+        cartText.text = "Total: $" + Order.total_print
 
         //hopefully an example of how to generate the order view. Need to be able to run the app before this can be tested though
         /*for (i in 1..20) {

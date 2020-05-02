@@ -15,14 +15,14 @@ class PizzaCustomization : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pizza_customization)
 
-        cartText.text = "Subtotal: $" + Order.subtotal.toString()
+        cartText.text = "Subtotal: $" + Order.subtotal_print
         Log.d("cartText:", cartText.text.toString())
 
         for (meat in Order.meats) {
             if (meat=="Pepperoni") btnPepperoni.isChecked=true
             if (meat=="Sausage") btnSausage.isChecked=true
             if (meat=="Ham") btnHam.isChecked=true
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -31,7 +31,7 @@ class PizzaCustomization : AppCompatActivity() {
             if (veggie=="Onion") btnOnions.isChecked=true
             if (veggie=="Olive") btnOlives.isChecked=true
             if (veggie=="Pineapple") btnPineapples.isChecked=true
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -54,7 +54,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeMeat("Pepperoni")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -65,7 +65,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeMeat("Sausage")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -76,7 +76,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeMeat("Ham")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -87,7 +87,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeVeggie("Peppers")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -98,7 +98,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeVeggie("Onions")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -109,7 +109,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeVeggie("Olives")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
@@ -120,7 +120,7 @@ class PizzaCustomization : AppCompatActivity() {
             else {
                 Order.removeVeggie("Pineapples")
             }
-            cartText.text = "Subtotal: $" + Order.subtotal.toString()
+            cartText.text = "Subtotal: $" + Order.subtotal_print
             Log.d("cartText:", cartText.text.toString())
         }
 
