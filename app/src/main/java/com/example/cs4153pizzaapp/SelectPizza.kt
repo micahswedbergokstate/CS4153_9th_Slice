@@ -77,10 +77,5 @@ class SelectPizza : AppCompatActivity() {
             val intent = Intent(this, PizzaCustomization::class.java)
             startActivity(intent)
         }
-
-        btnSideSelect.setOnClickListener {
-            val intent = Intent(this, SelectSides::class.java)
-            startActivity(intent)
-        }
     }
 }

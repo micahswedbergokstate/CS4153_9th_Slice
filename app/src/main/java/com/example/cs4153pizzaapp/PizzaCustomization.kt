@@ -1,5 +1,6 @@
 package com.example.cs4153pizzaapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.CompoundButton
@@ -124,6 +125,9 @@ class PizzaCustomization : AppCompatActivity() {
         }
 
         // Close activity
-        btnConfirm.setOnClickListener {finish()}
+        btnConfirm.setOnClickListener {
+            val intent = Intent(this, SelectSides::class.java)
+            startActivity(intent)
+        }
     }
 }

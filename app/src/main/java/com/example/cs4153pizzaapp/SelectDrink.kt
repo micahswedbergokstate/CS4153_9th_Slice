@@ -30,13 +30,13 @@ class SelectDrink : AppCompatActivity() {
 
         btnAddDietCoke.setOnClickListener {
             Order.addDrink("Diet Coke")
-            cokeCount.text = "  " + countItems("Diet Coke") + "  "
+            dietCokeCount.text = "  " + countItems("Diet Coke") + "  "
             cartText.text = "Subtotal: $" + Order.subtotal.toString()
         }
 
         btnRemoveDietCoke.setOnClickListener {
             Order.removeDrink("Diet Coke")
-            cokeCount.text = "  " + countItems("Diet Coke") + "  "
+            dietCokeCount.text = "  " + countItems("Diet Coke") + "  "
             cartText.text = "Subtotal: $" + Order.subtotal.toString()
         }
 
